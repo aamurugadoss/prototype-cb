@@ -1,0 +1,84 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+</head>
+<body>
+	<div id="outer">
+		<form action="#" th:action="@{/home}" th:object="${weatherData}"
+			method="post">
+			<div class="container">
+				<div>
+					<h1>Weather Information</h1>
+				</div>
+				<div>
+					<select id="location" name="location" onChange="repopulate()">
+						<option value="NONE">---Select City---</option>
+						<option th:each="locationDTO : ${locations}"
+							th:value="${locationDTO.locationCode}"
+							th:selected="${locationDTO.isSelected(lastselected)}"
+							th:text="${locationDTO.locationName}"></option>
+					</select>
+				</div>
+				<div id="divid">
+					<h5>
+						<span th:text="${weatherData.time != null}?${weatherData.time}"></span>
+					</h5>
+				</div>
+				<div id="divsize">
+					<h2>
+						<span th:text="${weatherData.temp != null}?${weatherData.temp}"></span>
+						<span
+							th:if="${weatherData.condition != null}?${weatherData.condition} == 'Rain'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<img th:src="@{/images/rainy.gif}" /> <span
+							th:text="${weatherData.condition != null}?${weatherData.condition}"></span>
+						</span> <span
+							th:if="${weatherData.condition != null}?${weatherData.condition} == 'Snow'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<img th:src="@{/images/snow.gif}" /> <span
+							th:text="${weatherData.condition != null}?${weatherData.condition}"></span>
+						</span> <span
+							th:if="${weatherData.condition != null}?${weatherData.condition} == 'Sunny'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+							th:src="@{/images/sunny.gif}" /> <span
+							th:text="${weatherData.condition != null}?${weatherData.condition}"></span>
+						</span>
+					</h2>
+				</div>
+				<div>
+					<p>
+						<br></br> <br></br>
+					<table id="extended">
+						<tr>
+							<td>Position:</td>
+							<td
+								th:text="${weatherData.position != null}?${weatherData.position}"></td>
+						</tr>
+						<tr>
+							<td>Date:</td>
+							<td th:text="${weatherData.date != null}?${weatherData.date}"></td>
+						</tr>
+						<tr>
+							<td>Pressure:</td>
+							<td
+								th:text="${weatherData.pressure != null}?${weatherData.pressure}"></td>
+						</tr>
+						<tr>
+							<td>Humidity:</td>
+							<td
+								th:text="${weatherData.humidity != null}?${weatherData.humidity}"></td>
+						</tr>
+					</table>
+					</p>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	function repopulate() {
+		var location = (document.getElementById('location').value);
+		window.location.href = "weatherdetails" + "?location=" + location;
+	}
+</script>

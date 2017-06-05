@@ -1,0 +1,89 @@
+body {
+	font: 12px Arial, Helvetica, sans-serif;
+	background: url(/images/bg.jpg) repeat-x left top;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+#outer {
+	width: 772px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+/* body {
+background-image: url(/images/bg.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+} */
+#extended {
+	width: 50%;
+	border-collapse: collapse;
+}
+
+#extended td {
+	height: 32px;
+}
+
+#extended .max {
+	width: 7%;
+	text-align: right;
+	padding-right: 3px;
+}
+
+#extended td.max {
+	color: #F96611;
+}
+
+
+#extended td {
+	padding-left: 5px;
+	padding-bottom: 3px;
+	color: white;
+}
+
+h1 {
+	padding-left: 3px;
+	padding-bottom: 3px;
+	color: white;
+}
+
+h2 {
+	padding-left: 3px;
+	padding-bottom: 3px;
+	color: white;
+}
+
+h5 {
+	padding-left: 3px;
+	padding-bottom: 3px;
+	color: white;
+}
+
+#image {
+	width: 50%;
+	border-collapse: collapse;
+}
+
+#divsize {
+	height: 50px;
+	width: 50%;
+}
+
+#divid {
+	height: 20px;
+	width: 20%;
+}
+select {
+	border: 1px solid #ccc;
+	font-size: 14px;
+	height: 25px;
+	width: 150px;
+	background: black;
+	color: white;
+}
